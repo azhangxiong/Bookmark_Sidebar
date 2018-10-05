@@ -264,6 +264,8 @@
                 return;
             }
 
+            s.elm.feedback.faq.addClass($.cl.hidden);
+
             if (data && data.suggestions && data.controls) {
                 s.elm.feedback.faq.addClass($.cl.loading);
 
@@ -284,6 +286,7 @@
                         $.delay().then(() => {
                             answer.css("height", answer[0].offsetHeight + "px");
                             answer.addClass([$.cl.settings.feedback.noHeight, $.cl.hidden]);
+                            s.elm.feedback.faq.removeClass($.cl.hidden);
                             return $.delay(300);
                         }).then(() => {
                             suggestion
@@ -294,8 +297,6 @@
                         });
                     }
                 });
-            } else {
-                s.elm.feedback.faq.addClass($.cl.hidden);
             }
         };
 
